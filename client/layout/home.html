@@ -1,0 +1,29 @@
+<template name="main">
+    <h1>Medical App </h1>
+    <hr />
+    {{> navigation}}
+    
+    {{> yield}}
+    <hr />
+    <p>Uppsala, 2017.</p>
+</template>
+
+
+<template name="navigation">
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        {{#if currentUser}}
+            <li><a href="#" class="logout">Logout</a></li>
+        {{else}}
+            <li><a href="{{pathFor route='login'}}">Login</a></li>
+            <li><a href="{{pathFor route='register'}}">Register</a></li>
+            
+        {{/if}}
+    </ul>
+</template>
+
+<template name="home">
+    {{#if currentUser}}
+        {{> questionnaire}}
+    {{/if}}
+</template>

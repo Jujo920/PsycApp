@@ -1,0 +1,39 @@
+<template name="questionnaire">
+    <form name="myForm">
+        {{#each quests}}
+        <fielset>
+            <legend>{{title}} </legend>
+            <p>{{text}}</p>
+            {{#each opts}}
+                <p><input type="radio" name="{{this.name}}" value="{{this.value}}" required>  {{this.optxt}} </p>
+            {{/each}}
+            </fielset>
+        {{/each}}
+        <input type="submit" value="Submit your answers"/>
+    </form>
+</template>
+
+
+<template name="questionnaire1">
+    <h2>Questionnaire</h2>
+    <form> 
+        {{#each questions}}
+        <fieldset>
+            <legend>{{qtitle}}</legend>
+            <p>{{qtext}}</p>
+            {{#each options}}
+                <p><input type="radio" name="{{this.optqgroup}}" value="{{this.optvalue}}" required>  {{this.optxt}}</p>
+            {{/each}}
+        </fieldset>
+        <br>
+        {{/each}}
+        
+        <input type="submit" value="Submit your answers"/>
+
+  </form>
+</template>
+
+
+
+<!-- THIS FOR THE DISABILITATION OF THE SUBMIT BUTTON
+        <input type="submit" name="Submit" value="Submit your answers" onclick="this.disabled=true; this.value='Thank you for your answers';" /> -->
